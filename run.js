@@ -6,7 +6,7 @@ function add_point(){
 }
 function show(){
   document.getElementById("points").innerHTML = ""
-  document.getElementById("pairs").innerHTML = ""
+  document.getElementById("pairs").innerHTML = "Пары<br>";
   point.forEach(function(name,index,arr){
     document.getElementById("points").innerHTML+='<input type="text" id="pt'+index+'" value='+name+' onchange="point['+index+']=document.getElementById(\'pt'+index+'\').value; show();"/><br/>'
   });
@@ -22,7 +22,9 @@ function restrict(index){
   var i=0,rests=[];
   for (i=0;i<pair.length;i++){
     if (i==index) continue;
-    
+    if ((pair[i][0]==pair[index][0]) || (pair[i][0]==pair[index][1]) || (pair[i][1]==pair[index][0]) || (pair[i][1]==pair[index][1])){
+      ;
+    }
   }
 }
 function show_dist(num){
